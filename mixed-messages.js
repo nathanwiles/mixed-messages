@@ -46,7 +46,7 @@ const listOfTasks = [
     'selling drugs',
     'buying drugs',
     'doing drugs',
-    'coding'
+    ' writing code'
 ]
 const listOfDifficulties = [
     "impossible",
@@ -82,6 +82,9 @@ const messageGenerator = () => {
     let randomThing2 = _randomThing();
     let randomTask = _randomTask();
     let randomDifficulty = _randomDifficulty();
+    if (randomThing1 == randomThing2){
+        randomThing2 = _randomThing();
+    }
     console.log(`${randomThing1} and ${randomThing2} makes ${randomTask} ${randomDifficulty}!`)
 }
 messageGenerator()
