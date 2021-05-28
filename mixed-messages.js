@@ -1,6 +1,6 @@
 // mixed messages project, generates nonsense advice.
 
-// Define global Variables.
+// messageGenerator1 resources
 
 const listOfThings = [
     'peanut butter', 
@@ -77,7 +77,7 @@ const _randomDifficulty = () => {
     let randomDifficulty = listOfDifficulties[index]
     return  randomDifficulty;
 }
-const messageGenerator = () => {
+const messageGenerator1 = () => {
     let randomThing1 = _randomThing();
     let randomThing2 = _randomThing();
     let randomTask = _randomTask();
@@ -87,5 +87,140 @@ const messageGenerator = () => {
     }
     console.log(`${randomThing1} and ${randomThing2} makes ${randomTask} ${randomDifficulty}!`)
 }
-messageGenerator()
 
+
+// messageGenerator2 resources
+
+const listOfNouns = [
+    'mother', 
+    'father', 
+    'baby', 
+    'child', 
+    'toddler', 
+    'teenager', 
+    'grandmother', 
+    'student', 
+    'teacher', 
+    'minister', 
+    'businessperson', 
+    'salesclerk', 
+    'woman', 
+    'man', 
+    'table', 
+    'truck', 
+    'book', 
+    'pencil', 
+    'iPad', 
+    'computer', 
+    'coat', 
+    'boots'
+]
+const listOfQualities = [
+    'good',
+    'bad',
+    'easy',
+    'hard',
+    'never a bad idea',
+    'a lot of work',
+    'a hassle',
+    'vindictive',
+    'evil',
+    'fun',
+    'goofy',
+    'just dandy',
+    'a good day',
+    'sometimes enough just',
+    'never enough',
+    'in your best interest',
+    'worth it',
+    'heartbreaking',
+    'awe inspiring',
+    'tempting',
+    'perfectly normal',
+    'kind',
+    'nice',
+    'smart'
+]
+const listOfVerbs = [
+    'ask',
+    'be',
+    'become',
+    'call',
+    'do',
+    'feel',
+    'find',
+    'get',
+    'give away',
+    'go to',
+    'have',
+    'hear',
+    'help',
+    'keep',
+    'know',
+    'leave',
+    'let go of',
+    'like',
+    'live with',
+    'look at',
+    'mace',
+    'kiss',
+    'beat',
+    'move',
+    'need',
+    'play with',
+    'put up with',
+    'chase',
+    'speak to',
+    'see',
+    'show',
+    'take',
+    'talk to',
+    'tell',
+    'think about',
+    'try',
+    'turn',
+    'use',
+    'want',
+    'work with'
+]
+const _randomQuality = () => {
+    let length = listOfQualities.length 
+    let randomIndex =  Math.floor(Math.random() * length)
+    let randomThing = listOfQualities[randomIndex]
+    return randomThing;
+}
+const _randomVerb = () => {
+    let length = listOfVerbs.length 
+    let randomIndex =  Math.floor(Math.random() * length)
+    let randomThing = listOfVerbs[randomIndex]
+    return randomThing;
+}
+const _randomNoun = () => {
+    let length = listOfNouns.length 
+    let randomIndex =  Math.floor(Math.random() * length)
+    let randomThing = listOfNouns[randomIndex]
+    return randomThing;
+}
+const messageGenerator2 = () => {
+    let randomQuality = _randomQuality()
+    let randomVerb = _randomVerb()
+    let randomNoun = _randomNoun()
+    console.log(`It's ${randomQuality} to ${randomVerb} your ${randomNoun}.`)
+}
+
+// randomMessage resources
+
+const randomMessage = () => {
+    let randomNum = Math.floor(Math.random() * 2)
+    switch (randomNum) {
+        case 0: messageGenerator1()
+        break;
+        case 1: messageGenerator2()
+        break;
+        default: console.log('something went very wrong')
+        break;
+    }
+}
+
+// run program
+randomMessage()
