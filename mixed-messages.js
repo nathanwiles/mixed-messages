@@ -1,7 +1,7 @@
 // mixed messages project, generates nonsense advice.
 
 // Define global Variables.
-let message = '';
+
 const listOfThings = [
     'peanut butter', 
     'acid', 
@@ -62,16 +62,20 @@ const listOfDifficulties = [
     'take forever'
 ]
 const _randomThing = () => {
-    let index =  Math.random * listOfThings.length;
-    return listOfThings[index]
+    let length = listOfThings.length 
+    let randomIndex =  Math.floor(Math.random() * length)
+    let randomThing = listOfThings[randomIndex]
+    return randomThing;
 }
 const _randomTask = () => {
-    let index =  Math.random * listOfTasks.length;
-    return listOfTasks[index]
+    let index =  Math.floor(Math.random() * listOfTasks.length)
+    let randomTask = listOfTasks[index]
+    return randomTask;
 }
 const _randomDifficulty = () => {
-    let index =  Math.random * listOfDifficulties.length;
-    return listOfDifficulties[index]
+    let index =  Math.floor(Math.random() * listOfDifficulties.length)
+    let randomDifficulty = listOfDifficulties[index]
+    return  randomDifficulty;
 }
 const messageGenerator = () => {
     let randomThing1 = _randomThing();
@@ -80,5 +84,5 @@ const messageGenerator = () => {
     let randomDifficulty = _randomDifficulty();
     console.log(`${randomThing1} and ${randomThing2} makes ${randomTask} ${randomDifficulty}!`)
 }
-
 messageGenerator()
+
