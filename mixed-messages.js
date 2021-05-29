@@ -1,5 +1,13 @@
 // mixed messages project, generates nonsense advice.
 
+// global resources
+
+const _randomFromList = (listName) => {
+    let length = listName.length 
+    let randomIndex =  Math.floor(Math.random() * length)
+    let randomThing = listName[randomIndex]
+    return randomThing;
+}
 // messageGenerator1 resources
 
 const listOfThings = [
@@ -46,7 +54,7 @@ const listOfTasks = [
     'selling drugs',
     'buying drugs',
     'doing drugs',
-    ' writing code'
+    'writing code'
 ]
 const listOfDifficulties = [
     "impossible",
@@ -61,30 +69,16 @@ const listOfDifficulties = [
     'go quickly',
     'take forever'
 ]
-const _randomThing = () => {
-    let length = listOfThings.length 
-    let randomIndex =  Math.floor(Math.random() * length)
-    let randomThing = listOfThings[randomIndex]
-    return randomThing;
-}
-const _randomTask = () => {
-    let index =  Math.floor(Math.random() * listOfTasks.length)
-    let randomTask = listOfTasks[index]
-    return randomTask;
-}
-const _randomDifficulty = () => {
-    let index =  Math.floor(Math.random() * listOfDifficulties.length)
-    let randomDifficulty = listOfDifficulties[index]
-    return  randomDifficulty;
-}
 const messageGenerator1 = () => {
-    let randomThing1 = _randomThing();
-    let randomThing2 = _randomThing();
-    let randomTask = _randomTask();
-    let randomDifficulty = _randomDifficulty();
-    if (randomThing1 == randomThing2){
-        randomThing2 = _randomThing();
+    let randomThing1 = _randomFromList(listOfThings);
+    let randomThing2 = _randomFromList(listOfThings);
+    let randomTask = _randomFromList(listOfTasks);
+    let randomDifficulty = _randomFromList(listOfDifficulties);
+    // makes sure thing 1 and 2 are different.
+    while (randomThing1 == randomThing2){
+        randomThing2 = _randomFromList(listOfThings);
     }
+    // logs the resulting sentence
     console.log(`${randomThing1} and ${randomThing2} makes ${randomTask} ${randomDifficulty}!`)
 }
 
@@ -99,10 +93,10 @@ const listOfNouns = [
     'toddler', 
     'teenager', 
     'grandmother', 
-    'student', 
+    'students', 
     'teacher', 
     'minister', 
-    'businessperson', 
+    'business partner', 
     'salesclerk', 
     'woman', 
     'man', 
@@ -110,10 +104,18 @@ const listOfNouns = [
     'truck', 
     'book', 
     'pencil', 
-    'iPad', 
+    'tablet', 
     'computer', 
     'coat', 
-    'boots'
+    'boots',
+    'dog',
+    'cat',
+    'food',
+    'taxes',
+    'hands',
+    'feet',
+    'hair',
+    'fingers'
 ]
 const listOfQualities = [
     'good',
@@ -143,13 +145,13 @@ const listOfQualities = [
 ]
 const listOfVerbs = [
     'ask',
-    'be',
+    'be with',
     'become',
     'call',
     'do',
     'feel',
     'find',
-    'get',
+    'get into',
     'give away',
     'go to',
     'have',
@@ -175,36 +177,18 @@ const listOfVerbs = [
     'show',
     'take',
     'talk to',
-    'tell',
+    'tell things to',
     'think about',
-    'try',
-    'turn',
+    'try out',
+    'tune out',
     'use',
     'want',
     'work with'
 ]
-const _randomQuality = () => {
-    let length = listOfQualities.length 
-    let randomIndex =  Math.floor(Math.random() * length)
-    let randomThing = listOfQualities[randomIndex]
-    return randomThing;
-}
-const _randomVerb = () => {
-    let length = listOfVerbs.length 
-    let randomIndex =  Math.floor(Math.random() * length)
-    let randomThing = listOfVerbs[randomIndex]
-    return randomThing;
-}
-const _randomNoun = () => {
-    let length = listOfNouns.length 
-    let randomIndex =  Math.floor(Math.random() * length)
-    let randomThing = listOfNouns[randomIndex]
-    return randomThing;
-}
 const messageGenerator2 = () => {
-    let randomQuality = _randomQuality()
-    let randomVerb = _randomVerb()
-    let randomNoun = _randomNoun()
+    let randomQuality = _randomFromList(listOfQualities)
+    let randomVerb = _randomFromList(listOfVerbs)
+    let randomNoun = _randomFromList(listOfNouns)
     console.log(`It's ${randomQuality} to ${randomVerb} your ${randomNoun}.`)
 }
 
